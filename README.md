@@ -318,7 +318,29 @@ footer {
     font-size: 0.9rem;
     opacity: 0.8;
 }
+// Menu Burger Responsive
+document.querySelector('.burger').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
 
+// Slider automatique pour les biens (optionnel)
+let currentSlide = 0;
+const slides = document.querySelectorAll('.property-card');
+
+function showSlide(n) {
+    slides.forEach(slide => slide.style.display = 'none');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].style.display = 'block';
+}
+
+// setInterval(() => showSlide(currentSlide + 1), 3000); // Décommentez pour un slider automatique
+
+// Formulaire de contact
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Message envoyé ! Nous vous contacterons bientôt.');
+    this.reset();
+});
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
